@@ -101,10 +101,7 @@ td {
 }
 
 /* Категории */
-.categories .chart {
-  width: 120px;
-  margin: 0 auto;
-}
+
 .categories svg {
   width: 100%;
   height: auto;
@@ -193,66 +190,11 @@ td {
   font-size: 16px;
 }
 
-/* Расстояние между категориями и динамикой */
-.categories {
-  margin-bottom: 25px;
-}
-
-.chart-pie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-/* Раздел "Бюджеты" на сером фоне */
-.budgets {
-  background: #3E3E43;
-  color: #fff;
-  border-radius: 15px;
-  padding: 25px;
-  margin-top: 40px;
-}
-
 .budgets .center {
   text-align: center;
   font-family: 'MullerBold';
   margin-bottom: 20px;
 }
-.chart-pie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.circle {
-  fill: none;
-  stroke-width: 10;
-  stroke-linecap: round; 
-  transform-origin: center;
-  transform: rotate(-90deg);
-}
-/* базовый круг */
-.circular-chart {
-  transform: rotate(-90deg);
-}
-
-.circular-chart.small {
-  width: 80px;   /* было 40px */
-  height: 80px;  /* было 40px */
-}
-
-/* сами сегменты */
-.circle {
-  fill: none;
-  stroke-width: 20; 
-  transform-origin: center;
-}
-
-.circle.income { stroke: #6c5ce7; }
-.circle.food   { stroke: #00b894; }
-.circle.auto   { stroke: #e84393; }
-.circle.edu    { stroke: #0984e3; }
 
 /* Группа кнопок */
 .buttons-group {
@@ -282,7 +224,7 @@ td {
   color: #fff !important;
   border: none;
   border-radius: 10px;
-  padding: 15px 30px;
+  padding: 15px 25px;
   cursor: pointer;
   font-size: 16px;
   font-family: 'MullerRegular';
@@ -318,5 +260,1045 @@ td {
   .top-bar {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+/* ===== Модальные окна ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-window {
+  background: #fff;
+  color: #000;
+  border-radius: 15px;
+  padding: 25px 35px;
+  width: 380px;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  font-family: 'MullerRegular';
+}
+
+.modal-window h2 {
+  font-family: 'MullerBold';
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Поля формы */
+.modal-window input,
+.modal-window select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1F83E7;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* Кнопки */
+.modal-window .submit-btn {
+  display: block;
+  margin: 10px auto 0;
+  background: #1F83E7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Переключатель Доход / Расход */
+.switch-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.switch-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #1F83E7;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0 5px;
+  cursor: pointer;
+  background: transparent;
+  color: #1F83E7;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.switch-btn.active {
+  background: #1F83E7;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+/* Стили для формы добавления записи */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-row label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+}
+
+.form-input {
+  padding: 10px;
+  border: 2px solid #1F83E7;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.category-select-btn {
+  padding: 10px;
+  border: 2px solid #1F83E7;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.category-select-btn:hover {
+  background: #f0f8ff;
+  border-color: #1669c7;
+}
+
+.dropdown-arrow {
+  color: #666;
+  font-size: 12px;
+}
+
+.submit-btn {
+  background: #1F83E7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #1669c7;
+  transform: scale(1.02);
+}
+
+/* Модальное окно категорий */
+.category-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.category-modal-content {
+  background: #fff;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: #3E3E43;
+  color: #fff;
+}
+
+.category-modal-header h3 {
+  margin: 0;
+  font-family: 'MullerBold';
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-search {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1F83E7;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.categories-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.category-item {
+  margin-bottom: 5px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.category-main {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid #e9ecef;
+}
+
+.category-main:hover {
+  background: #e9ecef;
+}
+
+.category-icon {
+  font-size: 20px;
+  margin-right: 12px;
+  width: 30px;
+  text-align: center;
+}
+
+.category-name {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.expand-arrow {
+  color: #666;
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.subcategories {
+  background: #fff;
+  border-left: 3px solid #1F83E7;
+  margin-left: 20px;
+}
+
+.subcategory-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px 10px 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.subcategory-item:hover {
+  background: #f0f8ff;
+}
+
+.subcategory-item:last-child {
+  border-bottom: none;
+}
+
+.subcategory-icon {
+  font-size: 16px;
+  margin-right: 10px;
+  width: 25px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.subcategory-name {
+  color: #555;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .category-modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .category-main {
+    padding: 15px;
+  }
+  
+  .subcategory-item {
+    padding: 12px 15px 12px 35px;
+  }
+}
+/* Модальное окно добавления транзакции */
+.transaction-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.transaction-modal-content {
+  background: #fff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.transaction-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(135deg, #1F83E7, #1669c7);
+  color: #fff;
+  border-radius: 20px 20px 0 0;
+}
+
+.transaction-modal-header h2 {
+  margin: 0;
+  font-family: 'MullerBold';
+  font-size: 24px;
+}
+
+/* Переключатель Доход/Расход */
+.transaction-type-switch {
+  display: flex;
+  background: #f8f9fa;
+  margin: 0 25px;
+  border-radius: 12px;
+  padding: 4px;
+  margin-top: 20px;
+}
+
+.type-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'MullerBold';
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.type-btn.active {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.income-btn.active {
+  color: #00b894;
+}
+
+.expense-btn.active {
+  color: #e84393;
+}
+
+/* Секции формы */
+.transaction-form {
+  padding: 25px;
+}
+
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-section h3 {
+  margin: 0 0 10px 0;
+  font-family: 'MullerBold';
+  font-size: 16px;
+  color: #333;
+}
+
+/* Поля формы */
+.form-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1F83E7;
+  box-shadow: 0 0 0 3px rgba(31, 131, 231, 0.1);
+}
+
+.category-select-btn {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.category-select-btn:hover {
+  border-color: #1F83E7;
+  background: #f8f9fa;
+}
+
+.dropdown-arrow {
+  color: #666;
+  font-size: 12px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #1F83E7, #1669c7);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'MullerBold';
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(31, 131, 231, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .transaction-modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .transaction-modal-header {
+    padding: 20px;
+  }
+  
+  .transaction-form {
+    padding: 20px;
+  }
+}
+
+/* Обновленные стили для модального окна категорий */
+.category-modal-overlay {
+  z-index: 1001; /* Выше основного модального окна */
+}
+
+.category-modal-content {
+  max-width: 500px;
+  max-height: 70vh;
+}
+/* Модальное окно добавления бюджета */
+.budget-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.budget-modal-content {
+  background: #fff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.budget-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(135deg, #00b894, #00a085);
+  color: #fff;
+  border-radius: 20px 20px 0 0;
+}
+
+.budget-modal-header h2 {
+  margin: 0;
+  font-family: 'MullerBold';
+  font-size: 24px;
+}
+
+.budget-form {
+  padding: 25px;
+}
+
+.budget-form .form-section {
+  margin-bottom: 25px;
+}
+
+.budget-form .form-section h3 {
+  margin: 0 0 10px 0;
+  font-family: 'MullerBold';
+  font-size: 16px;
+  color: #333;
+}
+
+.budget-form .form-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.budget-form .form-input:focus {
+  outline: none;
+  border-color: #00b894;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+.budget-form .category-select-btn {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.budget-form .category-select-btn:hover {
+  border-color: #00b894;
+  background: #f8f9fa;
+}
+
+.budget-form .submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #00b894, #00a085);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'MullerBold';
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.budget-form .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+}
+
+/* Адаптивность для формы бюджета */
+@media (max-width: 768px) {
+  .budget-modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .budget-modal-header {
+    padding: 20px;
+  }
+  
+  .budget-form {
+    padding: 20px;
+  }
+}
+/* Стили для круговой диаграммы категорий */
+/* Стили для круговой диаграммы категорий */
+.categories .chart-container {
+  display: flex;
+  flex-direction: column; /* Меняем на колонку */
+  gap: 20px;
+  align-items: center;
+}
+
+.pie-chart-wrapper {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+}
+
+.pie-chart {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #f8f9fa;
+}
+
+.pie-slice {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pie-slice:hover {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+
+.categories-legend {
+  list-style: none;
+  width: 100%; /* Занимает всю ширину */
+  margin: 0;
+  padding: 0;
+  /* Убираем ограничение по высоте и прокрутку */
+  max-height: none;
+  overflow-y: visible;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.legend-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.legend-name {
+  flex: 1;
+  font-size: 14px;
+  color: #fff;
+}
+
+.legend-amount {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.legend-amount.income {
+  color: #00b894;
+}
+
+.legend-amount.expense {
+  color: #e84393;
+}
+
+/* Адаптивность для диаграммы */
+@media (max-width: 768px) {
+  .categories .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pie-chart-wrapper {
+    margin-bottom: 15px;
+  }
+  
+  .categories-legend {
+    width: 100%;
+  }
+}
+
+/* Убедитесь, что карточка категорий выглядит хорошо */
+.categories.card {
+  background: #3E3E43;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  /* Убираем фиксированную высоту */
+  min-height: auto;
+  height: auto;
+}
+
+.categories.card h3 {
+  margin-bottom: 15px;
+  font-family: 'MullerBold';
+  text-align: center;
+}
+
+/* Стили для правой колонки */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Расстояние между карточками */
+}
+
+.right-col .card {
+  /* Карточки автоматически растягиваются по содержимому */
+  flex-shrink: 0;
+}
+/* Добавьте расстояние между карточками в правой колонке */
+.right-col .card {
+  margin-bottom: 25px;
+}
+
+.right-col .card:last-child {
+  margin-bottom: 0;
+}
+
+/* Специфичные стили для карточки категорий */
+.categories.card {
+  background: #3E3E43;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  margin-bottom: 25px; /* Добавляем отступ снизу */
+}
+
+.categories.card h3 {
+  margin-bottom: 15px;
+  font-family: 'MullerBold';
+  text-align: center;
+}
+
+/* Стили для карточки динамики */
+.dynamic.card {
+  background: #3E3E43;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  margin-bottom: 25px; /* Добавляем отступ снизу */
+}
+
+.dynamic.card h3 {
+  margin-bottom: 15px;
+  font-family: 'MullerBold';
+  text-align: center;
+}
+
+/* В существующих стилях content-grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-col {
+  gap: 25px; /* Расстояние между элементами в правой колонке */
+}
+/* Переключатель типа диаграммы */
+.chart-type-switch {
+  display: flex;
+  background: #4a4a4f;
+  margin: 0 0 15px 0;
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.chart-type-switch .type-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'MullerRegular';
+  font-size: 12px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.chart-type-switch .type-btn.active {
+  background: #1F83E7;
+  color: #fff;
+  font-weight: bold;
+}
+
+.chart-type-switch .expenses-btn.active {
+  background: #e84393;
+}
+
+.chart-type-switch .incomes-btn.active {
+  background: #00b894;
+}
+
+/* Обновленные стили для легенды */
+.categories-legend {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  max-height: none;
+  overflow-y: visible;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.legend-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.legend-item.no-data {
+  justify-content: center;
+  background: transparent;
+  color: #999;
+  font-style: italic;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.legend-name {
+  flex: 1;
+  font-size: 12px;
+  color: #fff;
+}
+
+.legend-amount {
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.legend-amount.expenses {
+  color: #e84393;
+}
+
+.legend-amount.incomes {
+  color: #00b894;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .chart-type-switch .type-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+/* Стили для раздела бюджетов */
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.budget-header h3 {
+  margin: 0;
+  font-family: 'MullerBold';
+  font-size: 18px;
+}
+
+.budget-pro {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.budget-total {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.total-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.total-label {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.total-amount {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.total-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.total-progress {
+  height: 100%;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.budgets-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.budget-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.budget-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.budget-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.budget-name {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.budget-amount {
+  font-size: 13px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.budget-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.budget-progress {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.budget-empty {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Стиль для необязательного поля */
+.optional {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .budget-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .budget-amount {
+    align-self: flex-end;
   }
 }
