@@ -1,4 +1,3 @@
-// src/main.js
 import HeaderComponent from './view/header-component.js';
 import TransactionListComponent from './view/transaction-list-component.js';
 import AddTransactionFormComponent from './view/add-transaction-form-component.js';
@@ -90,22 +89,9 @@ const initApp = async () => {
   `;
   root.appendChild(topBar);
   
-  // Блок фильтра
+  // Блок фильтра - ТОЛЬКО ПУСТОЙ КОНТЕЙНЕР
   const filterWrap = document.createElement('div');
-  filterWrap.className = 'filter';
-  filterWrap.innerHTML = `
-    <h2>Фильтр</h2>
-    <div class="filter-selects">
-      <select name="month">
-        <option value="">Месяц</option>
-        ${[...Array(12)].map((_,i)=>`<option value="${i+1}">${['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'][i]}</option>`).join('')}
-      </select>
-      <select name="day">
-        <option value="">День</option>
-        ${[...Array(31)].map((_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')}
-      </select>
-    </div>
-  `;
+  filterWrap.className = 'filter-container'; // меняем класс на container
   root.appendChild(filterWrap);
   
   // СЕТКА 2x2: Верхний ряд (Операции + Круговая), Средний ряд (Динамика), Нижний ряд (Бюджеты)
